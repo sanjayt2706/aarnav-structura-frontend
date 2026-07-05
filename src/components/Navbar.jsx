@@ -1,13 +1,18 @@
-import useNavScroll from "../hooks/useNavScroll";
+import useNavBehavior from "../hooks/useNavBehavior";
 
 const Navbar = () => {
-  const scrolled = useNavScroll();
+  const { hidden, scrolled } = useNavBehavior();
+
+  const cls = [
+    hidden ? "hidden" : "",
+    scrolled ? "scrolled" : ""
+  ].filter(Boolean).join(" ");
 
   return (
-    <nav id="nav" className={scrolled ? "up" : ""}>
+    <nav className={cls}>
       <div className="logo">
         <div className="logo-mark"><span>AS</span></div>
-        <div className="logo-text">
+        <div>
           <span className="logo-name">Aarnav Structura</span>
           <span className="logo-sub">Construction &amp; Civil Engineering</span>
         </div>
@@ -18,6 +23,8 @@ const Navbar = () => {
           <li><a href="#about">About</a></li>
           <li><a href="#process">Process</a></li>
           <li><a href="#portfolio">Projects</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#brochure">Brochure</a></li>
         </ul>
         <a href="#contact" className="nav-btn">Start a Project</a>
       </div>

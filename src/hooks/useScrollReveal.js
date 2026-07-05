@@ -1,26 +1,19 @@
 import { useEffect } from "react";
 
-// Replicates the static site's reveal behavior:
-// any element with class "reveal" fades/slides in once it's 10% visible,
-// then stops being observed (animation only plays once).
-// Call this once per page (e.g. in Home.jsx) after all sections have mounted.
 const useScrollReveal = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("in");
-            observer.unobserve(entry.target);
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add("in");
+            observer.unobserve(e.target);
           }
         });
       },
-      { threshold: 0.1 }
+      { threshold: 0.08 }
     );
-
-    const targets = document.querySelectorAll(".reveal");
-    targets.forEach((target) => observer.observe(target));
-
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
     return () => observer.disconnect();
   }, []);
 };

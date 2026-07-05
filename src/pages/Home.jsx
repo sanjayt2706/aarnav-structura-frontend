@@ -5,16 +5,15 @@ import Services from "../components/Services.jsx";
 import About from "../components/About.jsx";
 import Process from "../components/Process.jsx";
 import Projects from "../components/Projects.jsx";
+import Engineers from "../components/Engineers.jsx";
 import Testimonials from "../components/Testimonials.jsx";
+import Brochure from "../components/Brochure.jsx";
 import Contact from "../components/Contact.jsx";
 import Footer from "../components/Footer.jsx";
 import useScrollReveal from "../hooks/useScrollReveal.js";
 
 const Home = () => {
-  // Activates the scroll-reveal animation for every ".reveal" element
-  // across all sections, once they've mounted.
   useScrollReveal();
-
   return (
     <>
       <Navbar />
@@ -24,7 +23,9 @@ const Home = () => {
       <About />
       <Process />
       <Projects />
+      <Engineers />
       <Testimonials />
+      <Brochure />
       <Contact />
       <Footer />
     </>

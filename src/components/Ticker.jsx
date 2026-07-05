@@ -1,27 +1,16 @@
-const TICKER_ITEMS = [
-  "Residential Construction",
-  "Commercial Fit-outs",
-  "Structural Engineering",
-  "SUDA Approved",
-  "Interior Design",
-  "Project Management",
-  "Civil Works",
-  "Shivamogga · Karnataka"
+const ITEMS = [
+  "Residential Construction", "Commercial Fit-outs", "Structural Engineering",
+  "SUDA Approved", "Interior Design", "Project Management",
+  "Civil Works", "IS Code Compliant", "Shivamogga · Karnataka"
 ];
 
-// Rendered twice in sequence so the CSS animation (translateX -50%)
-// creates a seamless infinite loop, exactly like the static site.
 const Ticker = () => {
-  const items = [...TICKER_ITEMS, ...TICKER_ITEMS];
-
+  const all = [...ITEMS, ...ITEMS];
   return (
     <div className="ticker">
       <div className="ticker-inner">
-        {items.map((item, idx) => (
-          <span key={idx}>
-            {item}
-            <span className="dot">&nbsp;◆&nbsp;</span>
-          </span>
+        {all.map((item, i) => (
+          <span key={i}>{item}<span className="dot">&nbsp;◆&nbsp;</span></span>
         ))}
       </div>
     </div>
